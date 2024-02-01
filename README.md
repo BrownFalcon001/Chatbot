@@ -24,6 +24,7 @@ The Chatbot for PDF Document Analysis is built using Python and Streamlit, a pop
 - Extract specific information from the document based on keywords using FuzzyWuzzy for fuzzy string matching
 - Display extracted information in JSON format
 - Calculate and display response time
+- **Error Handling:** The document format will be in (.pdf) file only
 
 ## Architecture
 
