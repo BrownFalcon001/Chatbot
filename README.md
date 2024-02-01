@@ -74,6 +74,7 @@ streamlit run chatbot.py
 ### 5. Upload PDF Documents
 
 Once the application is running, access it through the provided URL (usually http://localhost:8501) in your web browser. You can then upload PDF documents to analyze.
+Enter attached PDF for test
 
 ### 6. Enter Keywords
 
