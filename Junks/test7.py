@@ -1,12 +1,13 @@
 import streamlit as st
-import time  # Import time module
+import time
 from PyPDF2 import PdfReader
 from io import BytesIO
 import nltk
 from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from fuzzywuzzy import fuzz  # Import fuzzywuzzy for fuzzy string matching
+from fuzzywuzzy import fuzz
 
 # Download NLTK resources (required for text preprocessing)
 nltk.download('punkt')
@@ -30,16 +31,24 @@ def preprocess_text(text):
     words = [word.lower() for word in tokens if word.isalnum() and word.lower() not in stop_words]
     return " ".join(words)
 
-# Function to extract specific information from PDF text based on keywords
-def extract_information(pdf_text, keywords):
-    extracted_info = []
-    for keyword in keywords:
-        keyword = keyword.lower()
-        for line in pdf_text.split('\n'):
-            # Use fuzzy string matching to find approximate matches
-            if fuzz.partial_ratio(keyword, line.lower()) >= 80:  # Adjust threshold as needed
-                extracted_info.append(line.strip())
-    return extracted_info
+# Function to extract specific section from CV text based on keywords or patterns
+def extract_section(cv_text, section_name):
+    sentences = sent_tokenize(cv_text)
+    section_start = -1
+    section_end = -1
+    section_name = section_name.lower()
+    for i, sentence in enumerate(sentences):
+        if fuzz.partial_ratio(section_name, sentence.lower()) >= 80:
+            section_start = i
+            break
+    if section_start != -1:
+        for i in range(section_start+1, len(sentences)):
+            if sentences[i] == '':
+                section_end = i
+                break
+    if section_start != -1 and section_end != -1:
+        return ' '.join(sentences[section_start+1:section_end])
+    return None
 
 def main():
     st.title("CV Chatbot")
@@ -54,23 +63,19 @@ def main():
         # Extract text from CV
         cv_text = extract_text_from_pdf(uploaded_file)
         
-        # User input keywords
-        user_keywords = st.text_input("Enter keywords to search for in your CV (comma-separated):")
+        # User input section name
+        user_section = st.text_input("Enter the section name you want to extract from your CV (e.g., 'skills'):")
         
-        if user_keywords:
-            # Split user input keywords into a list
-            keywords = [keyword.strip() for keyword in user_keywords.split(",")]
+        if user_section:
+            # Extract section based on user input
+            extracted_section = extract_section(cv_text, user_section)
             
-            # Extract information based on keywords
-            extracted_info = extract_information(cv_text, keywords)
-            
-            # Display extracted information
-            if extracted_info:
-                response = {"response": extracted_info}
-                st.json(response)  # Display response in JSON format
+            # Display extracted section
+            if extracted_section:
+                st.write("### Extracted Section:")
+                st.write(extracted_section)
             else:
-                response = {"response": "No information found in your CV based on the provided keywords."}
-                st.json(response)  # Display response in JSON format
+                st.write(f"No '{user_section}' section found in your CV.")
         
         # Calculate response time
         response_time = time.time() - start_time
