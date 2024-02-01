@@ -47,9 +47,10 @@ This architecture ensures a streamlined workflow for document analysis, from use
 
 ## Setup Instructions
 
-To run the Chatbot for PDF Document Analysis locally, follow these steps:
+To run the Chatbot for PDF Document Analysis locally on your machine, follow these steps:
 
-1. Clone the repository:
+### 1. Clone the Repository
 
-   ```bash
-   git clone https://github.com/your_username/pdf-chatbot.git
+```bash
+git clone https://github.com/BrownFalcon001/Chatbot.git
+
