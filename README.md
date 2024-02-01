@@ -92,6 +92,7 @@ The chatbot will display the extracted information based on the provided keyword
 
 3. **Additional Dependencies:** The application may require additional dependencies based on your system configuration. Please refer to the requirements.txt file for details.
 
+4. **Junk Folder:** It contains some tests I made during developing the chatbot
 
 
 
