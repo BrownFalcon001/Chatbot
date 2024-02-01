@@ -1,4 +1,4 @@
-# CV Chatbot
+# Chatbot for PDF Document Analysis
 
 CV Chatbot is a Python application that allows users to upload a CV in PDF format and extract specific information from it based on keywords provided by the user. The chatbot utilizes natural language processing (NLP) techniques to analyze the content of the CV and extract relevant information.
 
