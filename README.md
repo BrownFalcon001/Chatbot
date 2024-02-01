@@ -84,4 +84,14 @@ Enter keywords in the provided text input field to search for specific informati
 The chatbot will display the extracted information based on the provided keywords in JSON format, along with the response time for each query.
 
 
+## Note:
+
+1. **Python Installation:** Ensure that you have Python installed on your system to run the application.
+
+2. **Internet Connection:** Make sure you have an active internet connection during the first run of the application to download NLTK resources.
+
+3. **Additional Dependencies:** The application may require additional dependencies based on your system configuration. Please refer to the requirements.txt file for details.
+
+
+
 
