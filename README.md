@@ -1,8 +1,6 @@
 # Chatbot for PDF Document Analysis
 
-## Overview
-This project implements a chatbot that analyzes text from uploaded PDF documents and provides responses based on user queries. The chatbot extracts information from the PDF documents using natural language processing techniques and responds to user queries in real-time.
-
+CV Chatbot is a Python application that allows users to upload a CV in PDF format and extract specific information from it based on keywords provided by the user. The chatbot utilizes natural language processing (NLP) techniques to analyze the content of the CV and extract relevant information.
 
 ## Table of Contents
 
