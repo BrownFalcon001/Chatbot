@@ -1,0 +1,9 @@
+
+
+
+We initialize a dictionary called session_memory to store conversation history for each session.
+We use the session ID to uniquely identify each session and store the conversation history in the session_memory dictionary.
+We retrieve the session ID using st.session_state.get() and create a new session ID if it doesn't exist.
+We store the extracted text from the uploaded CV in the session memory dictionary under the corresponding session ID.
+We access the stored CV text from the session memory dictionary when processing user queries to maintain context across interactions.
+Each session's conversation history is preserved throughout the session, allowing the chatbot to provide personalized responses based on previous interactions with the user.

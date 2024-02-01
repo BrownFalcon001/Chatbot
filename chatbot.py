@@ -4,13 +4,14 @@ from PyPDF2 import PdfReader
 from io import BytesIO
 import nltk
 from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 from fuzzywuzzy import fuzz  # Import fuzzywuzzy for fuzzy string matching
 
 # Download NLTK resources (required for text preprocessing)
 nltk.download('punkt')
 nltk.download('stopwords')
+
+# Initialize session memory dictionary
+session_memory = {}
 
 # Function to extract text from PDF
 def extract_text_from_pdf(uploaded_file):
@@ -42,17 +43,29 @@ def extract_information(pdf_text, keywords):
     return extracted_info
 
 def main():
-    st.title("CV Chatbot")
+    st.title("Chatbot for PDF Document Analysis")
+    
+    # Get or create session ID
+    session_id = st.session_state.get("session_id", str(time.time()))
+    st.session_state.session_id = session_id
+    
+    # Print session ID
+    st.write(f"Session ID: {session_id}")
+    
+    # Check if session memory exists for the current session ID
+    if session_id not in session_memory:
+        session_memory[session_id] = {"cv_text": ""}
     
     # Upload CV file
     uploaded_file = st.file_uploader("Upload your CV", type="pdf")
     
     if uploaded_file:
+        # Extract text from CV and store it in session memory
+        cv_text = extract_text_from_pdf(uploaded_file)
+        session_memory[session_id]["cv_text"] = cv_text
+        
         # Start timer
         start_time = time.time()
-        
-        # Extract text from CV
-        cv_text = extract_text_from_pdf(uploaded_file)
         
         # User input keywords
         user_keywords = st.text_input("Enter keywords to search for in your CV (comma-separated):")
@@ -62,7 +75,7 @@ def main():
             keywords = [keyword.strip() for keyword in user_keywords.split(",")]
             
             # Extract information based on keywords
-            extracted_info = extract_information(cv_text, keywords)
+            extracted_info = extract_information(session_memory[session_id]["cv_text"], keywords)
             
             # Display extracted information
             if extracted_info:
