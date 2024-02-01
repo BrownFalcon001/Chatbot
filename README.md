@@ -95,4 +95,17 @@ The chatbot will display the extracted information based on the provided keyword
 4. **Junk Folder:** It contains some tests I made during developing the chatbot
 
 
+### Future Scope
+
+1. **Implement Advanced Natural Language Processing Techniques:** Enhance the chatbot's understanding and response generation capabilities by incorporating more advanced NLP techniques. This may include sentiment analysis, entity recognition, and semantic analysis to provide more accurate and context-aware responses.
+
+2. **Add Support for Additional Document Formats:** Extend the chatbot's functionality to analyze documents in formats other than PDF, such as DOCX, TXT, and more. This expansion will increase the versatility of the chatbot and allow users to analyze a wider range of document types seamlessly.
+
+3. **Enhance User Interface with More Interactive Features:** Continuously improve the user interface by adding more interactive elements and intuitive design features. Consider features like real-time chat interactions, drag-and-drop document upload, and customizable themes to enhance user engagement and satisfaction.
+
+4. **Integrate Authentication and Authorization:** Implement robust authentication and authorization mechanisms to ensure secure access to the chatbot application. Features such as user registration, login/logout functionality, and role-based access control will help protect sensitive information and provide personalized experiences for users.
+
+5. **Implement Database Backend for Session Data Management:** Develop a backend database system to store and manage session data, user preferences, and analysis results. This database will enable data persistence across sessions, allowing users to access their chat history, revisit previous analyses, and receive personalized recommendations based on their interactions.
+
+
 
