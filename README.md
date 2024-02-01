@@ -71,6 +71,17 @@ pip install -r requirements.txt
 ```bash
 streamlit run chatbot.py
 ```
+### 5. Upload PDF Documents
+
+Once the application is running, access it through the provided URL (usually http://localhost:8501) in your web browser. You can then upload PDF documents to analyze.
+
+### 6. Enter Keywords
+
+Enter keywords in the provided text input field to search for specific information within the uploaded PDF document.
+
+### 7. View Results
+
+The chatbot will display the extracted information based on the provided keywords in JSON format, along with the response time for each query.
 
 
 
