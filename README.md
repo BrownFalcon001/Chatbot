@@ -60,3 +60,17 @@ git clone https://github.com/BrownFalcon001/Chatbot.git
 ```bash
 cd Chatbot
 ```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+### 4. Run the Application
+
+```bash
+streamlit run chatbot.py
+```
+
+
+
