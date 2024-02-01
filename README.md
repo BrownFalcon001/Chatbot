@@ -6,7 +6,7 @@ Chatbot for PDF Document Analysis is a Python application that allows users to u
 
 - [Overview](#overview)
 - [Features](#features)
-- [Architecture Diagram](#architecture-diagram)
+- [Architecture](#architecture)
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
