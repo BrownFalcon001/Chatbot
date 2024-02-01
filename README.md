@@ -26,9 +26,24 @@ The Chatbot for PDF Document Analysis is built using Python and Streamlit, a pop
 - Display extracted information in JSON format
 - Calculate and display response time
 
-## Architecture Diagram
+## Architecture
 
-![Architecture Diagram](architecture_diagram.png)
+The Chatbot for PDF Document Analysis follows a simple yet effective architecture, consisting of the following components:
+
+1. **User Interface (Streamlit):** Provides a user-friendly interface for users to interact with the chatbot.
+   
+2. **Text Preprocessing Module (NLTK):** Handles text preprocessing tasks such as tokenization, removing stopwords, and normalizing text.
+
+3. **PDF Text Extraction:** Utilizes the PyPDF2 library to extract text content from uploaded PDF documents.
+
+4. **Keyword Extraction:** Employs the FuzzyWuzzy library for fuzzy string matching to extract specific information from the PDF text based on user-provided keywords.
+
+5. **Response Generation:** Generates responses in JSON format containing the extracted information from the document.
+
+6. **Performance Measurement:** Calculates and displays the response time for each query to provide users with an idea of processing speed.
+
+This architecture ensures a streamlined workflow for document analysis, from user input to information extraction and response generation.
+
 
 ## Setup Instructions
 
