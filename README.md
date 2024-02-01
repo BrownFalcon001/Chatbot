@@ -53,4 +53,10 @@ To run the Chatbot for PDF Document Analysis locally on your machine, follow the
 
 ```bash
 git clone https://github.com/BrownFalcon001/Chatbot.git
+```
 
+### 2. Navigate to the Project Directory
+
+```bash
+cd Chatbot
+```
