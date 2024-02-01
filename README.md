@@ -106,4 +106,7 @@ The chatbot will display the extracted information based on the provided keyword
 
 ### More Details
 
+See **details.txt** for more details information
+
+
 
